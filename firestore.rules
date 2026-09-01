@@ -1,0 +1,15 @@
+rules_version = '2';
+
+// Toutes les écritures passent exclusivement par le serveur Next.js via le
+// SDK Firebase Admin (clé de service), qui n'est pas soumis à ces règles.
+// Le client (navigateur) n'accède jamais directement à Firestore : ces
+// règles bloquent donc toute lecture/écriture directe depuis le web,
+// ce qui empêche la falsification du compteur de signalements.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read: if false;
+      allow write: if false;
+    }
+  }
+}
