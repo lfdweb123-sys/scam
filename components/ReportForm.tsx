@@ -56,8 +56,8 @@ export default function ReportForm() {
 
   if (status === "success") {
     return (
-      <div className="border border-line px-6 py-8">
-        <h2 className="font-serif text-2xl text-ink">Signalement publié</h2>
+      <div className="border border-line bg-paper px-6 py-8">
+        <h2 className="font-heading text-2xl text-ink">Signalement publié</h2>
         <p className="mt-3 font-sans text-sm leading-relaxed text-muted">
           Merci. Votre signalement concernant{" "}
           <span className="text-ink">{resultDomain}</span> a été vérifié
@@ -65,7 +65,7 @@ export default function ReportForm() {
         </p>
         <a
           href={`/site/${encodeURIComponent(resultDomain || "")}`}
-          className="mt-6 inline-block border border-ink px-5 py-2.5 font-sans text-sm text-ink hover:bg-ink hover:text-paper"
+          className="mt-6 inline-block border border-ink bg-ink px-5 py-2.5 font-sans text-sm text-paper hover:bg-accent hover:border-accent"
         >
           Voir la fiche du site
         </a>
@@ -92,7 +92,7 @@ export default function ReportForm() {
           required
           placeholder="exemple.com"
           defaultValue={prefillDomain}
-          className="mt-2 w-full border border-line bg-paper px-4 py-3 font-sans text-base text-ink placeholder:text-muted focus:border-ink"
+          className="mt-2 w-full border border-line bg-paper px-4 py-3 font-sans text-base text-ink placeholder:text-muted focus:border-accent focus:ring-1 focus:ring-accent"
         />
       </div>
 
@@ -105,7 +105,7 @@ export default function ReportForm() {
           name="category"
           required
           defaultValue=""
-          className="mt-2 w-full border border-line bg-paper px-4 py-3 font-sans text-base text-ink focus:border-ink"
+          className="mt-2 w-full border border-line bg-paper px-4 py-3 font-sans text-base text-ink focus:border-accent focus:ring-1 focus:ring-accent"
         >
           <option value="" disabled>
             Choisir une catégorie
@@ -130,7 +130,7 @@ export default function ReportForm() {
           maxLength={4000}
           rows={7}
           placeholder="Ce que vous avez commandé ou reçu, ce que le site a promis, ce qui s'est réellement passé..."
-          className="mt-2 w-full border border-line bg-paper px-4 py-3 font-sans text-base text-ink placeholder:text-muted focus:border-ink"
+          className="mt-2 w-full border border-line bg-paper px-4 py-3 font-sans text-base text-ink placeholder:text-muted focus:border-accent focus:ring-1 focus:ring-accent"
         />
         <p className="mt-2 font-sans text-xs text-muted">
           20 caractères minimum. Évitez d&apos;inclure des données personnelles
@@ -147,7 +147,7 @@ export default function ReportForm() {
           id="evidenceUrl"
           name="evidenceUrl"
           placeholder="https://..."
-          className="mt-2 w-full border border-line bg-paper px-4 py-3 font-sans text-base text-ink placeholder:text-muted focus:border-ink"
+          className="mt-2 w-full border border-line bg-paper px-4 py-3 font-sans text-base text-ink placeholder:text-muted focus:border-accent focus:ring-1 focus:ring-accent"
         />
         <p className="mt-2 font-sans text-xs text-muted">
           Capture d&apos;écran hébergée, e-mail reçu, page archivée...
@@ -163,7 +163,7 @@ export default function ReportForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="border border-ink px-6 py-3 font-sans text-sm text-ink hover:bg-ink hover:text-paper disabled:cursor-not-allowed disabled:opacity-50"
+        className="border border-ink bg-ink px-6 py-3 font-sans text-sm text-paper transition-colors hover:bg-accent hover:border-accent disabled:cursor-not-allowed disabled:opacity-50"
       >
         {status === "loading" ? "Envoi en cours…" : "Publier le signalement"}
       </button>

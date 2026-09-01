@@ -2,12 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+.font-heading {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
 :root {
   color-scheme: light;
 }
 
 html {
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {

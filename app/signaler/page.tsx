@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function SignalerPage() {
   return (
     <div className="mx-auto max-w-2xl px-6 py-12 sm:py-16">
-      <h1 className="font-serif text-3xl text-ink sm:text-4xl">Signaler un site</h1>
+      <h1 className="font-heading text-3xl text-ink sm:text-4xl">Signaler un site</h1>
       <p className="mt-4 max-w-prose font-sans text-base leading-relaxed text-muted">
         Décrivez ce que vous avez vécu. Votre signalement est examiné
         automatiquement puis publié s&apos;il respecte nos règles de

@@ -33,12 +33,12 @@ const ETAPES = [
 export default function CommentCaMarchePage() {
   return (
     <div className="mx-auto max-w-2xl px-6 py-12 sm:py-16">
-      <h1 className="font-serif text-3xl text-ink sm:text-4xl">Comment ça marche</h1>
+      <h1 className="font-heading text-3xl text-ink sm:text-4xl">Comment ça marche</h1>
 
       <ol className="mt-10 space-y-8">
         {ETAPES.map((etape) => (
           <li key={etape.titre} className="border-b border-line pb-8">
-            <h2 className="font-serif text-xl text-ink">{etape.titre}</h2>
+            <h2 className="font-heading text-xl text-ink">{etape.titre}</h2>
             <p className="mt-2 font-sans text-base leading-relaxed text-muted">{etape.texte}</p>
           </li>
         ))}
@@ -47,7 +47,7 @@ export default function CommentCaMarchePage() {
       <div className="mt-4">
         <Link
           href="/signaler"
-          className="inline-block border border-ink px-5 py-2.5 font-sans text-sm text-ink hover:bg-ink hover:text-paper"
+          className="inline-block border border-ink bg-ink px-5 py-2.5 font-sans text-sm text-paper transition-colors hover:bg-accent hover:border-accent"
         >
           Signaler un site
         </Link>

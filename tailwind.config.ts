@@ -10,11 +10,15 @@ const config: Config = {
       colors: {
         ink: "#0A0A0A",
         paper: "#FFFFFF",
-        line: "#D9D9D6",
-        muted: "#5C5C58",
+        bg: "#F8F9FF",
+        surfaceMuted: "#EEF1FA",
+        line: "#D8DBE6",
+        muted: "#5B5F73",
+        accent: "#0051D5",
+        accentHover: "#003FA8",
       },
       fontFamily: {
-        serif: ["var(--font-newsreader)", "Georgia", "serif"],
+        heading: ["var(--font-heading)", "Helvetica", "Arial", "sans-serif"],
         sans: ["var(--font-inter)", "Helvetica", "Arial", "sans-serif"],
       },
       maxWidth: {

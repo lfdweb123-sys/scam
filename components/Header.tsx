@@ -34,12 +34,12 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-3">
           <span
             aria-hidden="true"
-            className="flex h-9 w-9 items-center justify-center border border-ink font-serif text-base font-medium text-ink"
+            className="flex h-9 w-9 items-center justify-center border border-ink font-heading text-base font-medium text-ink"
           >
             SW
           </span>
           <span className="flex flex-col leading-none">
-            <span className="font-serif text-xl font-medium tracking-tight text-ink sm:text-2xl">
+            <span className="font-heading text-xl font-medium tracking-tight text-ink sm:text-2xl">
               ScamWatch
             </span>
             <span className="mt-1 hidden font-sans text-xs text-muted sm:block">
@@ -49,24 +49,32 @@ export default function Header() {
         </Link>
 
         {/* Navigation desktop */}
-        <nav aria-label="Navigation principale" className="hidden md:block">
-          <ul className="flex items-center gap-x-8 font-sans text-sm text-ink">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`border-b pb-0.5 transition-colors ${
-                    pathname === link.href
-                      ? "border-ink"
-                      : "border-transparent hover:border-ink"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="hidden items-center gap-x-8 md:flex">
+          <nav aria-label="Navigation principale">
+            <ul className="flex items-center gap-x-8 font-sans text-sm text-ink">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`border-b pb-0.5 transition-colors ${
+                      pathname === link.href
+                        ? "border-ink"
+                        : "border-transparent hover:border-ink"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <Link
+            href="/signaler"
+            className="border border-ink bg-ink px-5 py-2 font-sans text-sm text-paper transition-colors hover:bg-accent hover:border-accent"
+          >
+            Signaler
+          </Link>
+        </div>
 
         {/* Bouton menu mobile */}
         <button
@@ -113,6 +121,14 @@ export default function Header() {
               </Link>
             </li>
           ))}
+          <li className="border-t border-line px-6 py-4">
+            <Link
+              href="/signaler"
+              className="block border border-ink bg-ink px-5 py-2.5 text-center text-sm text-paper"
+            >
+              Signaler
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

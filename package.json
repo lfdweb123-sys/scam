@@ -9,20 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "0.27.3",
+    "firebase-admin": "12.6.0",
+    "lucide-react": "^0.451.0",
+    "nanoid": "5.0.7",
     "next": "15.5.9",
     "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "firebase-admin": "12.6.0",
-    "@anthropic-ai/sdk": "0.27.3",
-    "nanoid": "5.0.7"
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
-    "typescript": "5.5.4",
     "@types/node": "20.14.15",
     "@types/react": "18.3.11",
     "@types/react-dom": "18.3.1",
-    "tailwindcss": "3.4.10",
+    "autoprefixer": "10.4.20",
     "postcss": "8.4.41",
-    "autoprefixer": "10.4.20"
+    "tailwindcss": "3.4.10",
+    "typescript": "5.5.4"
   }
 }

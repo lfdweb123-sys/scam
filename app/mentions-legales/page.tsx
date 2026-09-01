@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 export default function MentionsLegalesPage() {
   return (
     <div className="mx-auto max-w-2xl px-6 py-12 sm:py-16">
-      <h1 className="font-serif text-3xl text-ink sm:text-4xl">Mentions légales</h1>
+      <h1 className="font-heading text-3xl text-ink sm:text-4xl">Mentions légales</h1>
 
       <div className="mt-10 space-y-10 font-sans text-sm leading-relaxed text-ink">
         <section>
-          <h2 className="font-serif text-xl">Éditeur du site</h2>
+          <h2 className="font-heading text-xl">Éditeur du site</h2>
           <p className="mt-3 text-muted">
             Site édité par La Faveur Infinie de Dieu, représentée par Sononkpon
             Gérard.
@@ -25,7 +25,7 @@ export default function MentionsLegalesPage() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl">Hébergement</h2>
+          <h2 className="font-heading text-xl">Hébergement</h2>
           <p className="mt-3 text-muted">
             Application hébergée par Vercel Inc. Données stockées par Google
             Firebase (Firestore).
@@ -33,7 +33,7 @@ export default function MentionsLegalesPage() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl">Nature du contenu publié</h2>
+          <h2 className="font-heading text-xl">Nature du contenu publié</h2>
           <p className="mt-3 text-muted">
             ScamWatch publie des signalements soumis librement par des
             internautes concernant des sites qu&apos;ils estiment frauduleux.
@@ -53,7 +53,7 @@ export default function MentionsLegalesPage() {
         </section>
 
         <section id="droit-de-reponse">
-          <h2 className="font-serif text-xl">Droit de réponse</h2>
+          <h2 className="font-heading text-xl">Droit de réponse</h2>
           <p className="mt-3 text-muted">
             L&apos;éditeur ou le responsable d&apos;un site mentionné sur
             ScamWatch peut demander la publication d&apos;une réponse, la
@@ -65,7 +65,7 @@ export default function MentionsLegalesPage() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl">Signalements abusifs</h2>
+          <h2 className="font-heading text-xl">Signalements abusifs</h2>
           <p className="mt-3 text-muted">
             Toute personne publiant un signalement mensonger dans le but de
             nuire à un site ou une entreprise légitime engage sa

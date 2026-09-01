@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { Gavel } from "lucide-react";
 import { getConfirmedSites, getWatchedSites, getSiteCount } from "@/lib/data";
 import type { SiteDoc } from "@/lib/types";
 import { SEUIL_CONFIRMATION } from "@/lib/firebase-admin";
+import QuickSearch from "@/components/QuickSearch";
 
 export const dynamic = "force-dynamic";
 
@@ -16,7 +18,7 @@ function SiteRow({ site, rank }: { site: SiteDoc; rank: number }) {
           <span className="w-6 shrink-0 font-sans text-sm text-muted">
             {String(rank).padStart(2, "0")}
           </span>
-          <span className="truncate font-serif text-lg text-ink group-hover:underline">
+          <span className="truncate font-heading text-lg text-ink group-hover:underline">
             {site.domain}
           </span>
         </div>
@@ -30,9 +32,9 @@ function SiteRow({ site, rank }: { site: SiteDoc; rank: number }) {
 
 function StatBox({ label, value }: { label: string; value: number }) {
   return (
-    <div className="border border-line px-5 py-4">
+    <div className="border border-line bg-paper px-5 py-4">
       <dt className="font-sans text-xs uppercase tracking-wide text-muted">{label}</dt>
-      <dd className="mt-1 font-serif text-3xl text-ink">{value}</dd>
+      <dd className="mt-1 font-heading text-3xl text-ink">{value}</dd>
     </div>
   );
 }
@@ -60,7 +62,7 @@ export default async function HomePage() {
         <p className="font-sans text-xs uppercase tracking-[0.15em] text-muted">
           Registre public · mis à jour en continu
         </p>
-        <h1 className="mt-4 max-w-prose font-serif text-4xl leading-[1.15] text-ink sm:text-5xl">
+        <h1 className="mt-4 max-w-prose font-heading text-4xl leading-[1.15] text-ink sm:text-5xl">
           Vérifiez un site avant d&apos;y faire confiance.
         </h1>
         <p className="mt-5 max-w-prose font-sans text-base leading-relaxed text-muted sm:text-lg">
@@ -73,8 +75,9 @@ export default async function HomePage() {
         <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
           <Link
             href="/signaler"
-            className="inline-block border border-ink bg-ink px-6 py-3 font-sans text-sm text-paper transition-colors hover:bg-paper hover:text-ink"
+            className="inline-flex items-center gap-2 border border-ink bg-ink px-6 py-3 font-sans text-sm text-paper transition-colors hover:bg-accent hover:border-accent"
           >
+            <Gavel size={16} strokeWidth={1.75} aria-hidden="true" />
             Signaler un site
           </Link>
           <Link
@@ -84,6 +87,8 @@ export default async function HomePage() {
             Comment fonctionne le registre
           </Link>
         </div>
+
+        <QuickSearch />
 
         <dl className="mt-12 grid max-w-md grid-cols-2 gap-4">
           <StatBox label="Sites confirmés" value={counts.confirmed} />
@@ -99,7 +104,7 @@ export default async function HomePage() {
         <div className="mt-14 grid gap-16 lg:grid-cols-2 lg:gap-12">
           <section>
             <div className="flex items-baseline justify-between border-b border-ink pb-3">
-              <h2 className="font-serif text-2xl text-ink">Sites confirmés</h2>
+              <h2 className="font-heading text-2xl text-ink">Sites confirmés</h2>
               <span className="font-sans text-xs text-muted">
                 {SEUIL_CONFIRMATION}+ signalements
               </span>
@@ -119,7 +124,7 @@ export default async function HomePage() {
 
           <section>
             <div className="flex items-baseline justify-between border-b border-ink pb-3">
-              <h2 className="font-serif text-2xl text-ink">Sous surveillance</h2>
+              <h2 className="font-heading text-2xl text-ink">Sous surveillance</h2>
               <span className="font-sans text-xs text-muted">en cours</span>
             </div>
             {watched.length === 0 ? (

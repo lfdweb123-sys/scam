@@ -8,13 +8,13 @@ export const metadata: Metadata = {
 export default function CguPage() {
   return (
     <div className="mx-auto max-w-2xl px-6 py-12 sm:py-16">
-      <h1 className="font-serif text-3xl text-ink sm:text-4xl">
+      <h1 className="font-heading text-3xl text-ink sm:text-4xl">
         Conditions d&apos;utilisation
       </h1>
 
       <div className="mt-10 space-y-10 font-sans text-sm leading-relaxed text-ink">
         <section>
-          <h2 className="font-serif text-xl">Objet</h2>
+          <h2 className="font-heading text-xl">Objet</h2>
           <p className="mt-3 text-muted">
             ScamWatch permet à toute personne de consulter et de publier des
             signalements concernant des sites web suspectés de fraude, sans
@@ -24,7 +24,7 @@ export default function CguPage() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl">Règles de publication</h2>
+          <h2 className="font-heading text-xl">Règles de publication</h2>
           <p className="mt-3 text-muted">En publiant un signalement, vous vous engagez à :</p>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-muted">
             <li>décrire une expérience réelle et personnelle, avec exactitude ;</li>
@@ -36,7 +36,7 @@ export default function CguPage() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl">Modération</h2>
+          <h2 className="font-heading text-xl">Modération</h2>
           <p className="mt-3 text-muted">
             Chaque signalement soumis est analysé par un système de
             modération automatisé avant toute publication. Ce système peut
@@ -47,7 +47,7 @@ export default function CguPage() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl">Responsabilité</h2>
+          <h2 className="font-heading text-xl">Responsabilité</h2>
           <p className="mt-3 text-muted">
             Les signalements publiés engagent la responsabilité de leur
             auteur. ScamWatch ne vérifie pas l&apos;exactitude factuelle des
@@ -59,7 +59,7 @@ export default function CguPage() {
         </section>
 
         <section>
-          <h2 className="font-serif text-xl">Contact</h2>
+          <h2 className="font-heading text-xl">Contact</h2>
           <p className="mt-3 text-muted">
             Pour toute question relative aux présentes conditions ou pour
             signaler un abus, écrivez à [adresse e-mail de contact].

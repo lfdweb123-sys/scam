@@ -4,11 +4,11 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-line bg-paper">
+    <footer className="border-t border-line bg-surfaceMuted">
       <div className="mx-auto max-w-5xl px-6 py-10">
         <div className="grid gap-8 font-sans text-sm text-muted sm:grid-cols-3">
           <div>
-            <p className="font-serif text-base text-ink">ScamWatch</p>
+            <p className="font-heading text-base text-ink">ScamWatch</p>
             <p className="mt-2 max-w-xs">
               Un registre collaboratif alimenté par les signalements d&apos;internautes,
               modéré automatiquement, pour aider chacun à repérer les sites

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function AProposPage() {
   return (
     <div className="mx-auto max-w-2xl px-6 py-12 sm:py-16">
-      <h1 className="font-serif text-3xl text-ink sm:text-4xl">À propos de ScamWatch</h1>
+      <h1 className="font-heading text-3xl text-ink sm:text-4xl">À propos de ScamWatch</h1>
 
       <div className="mt-8 space-y-6 font-sans text-base leading-relaxed text-muted">
         <p>

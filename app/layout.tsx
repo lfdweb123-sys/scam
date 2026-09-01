@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Newsreader, Inter } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const newsreader = Newsreader({
+const heading = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-newsreader",
+  variable: "--font-heading",
   display: "swap",
+  weight: ["600", "700", "800"],
 });
 
 const inter = Inter({
@@ -61,8 +62,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="fr" className={`${newsreader.variable} ${inter.variable}`}>
-      <body className="flex min-h-screen flex-col bg-paper font-sans text-ink antialiased">
+    <html lang="fr" className={`${heading.variable} ${inter.variable}`}>
+      <body className="flex min-h-screen flex-col bg-bg font-sans text-ink antialiased">
         {/* eslint-disable-next-line react/no-danger */}
         <script
           type="application/ld+json"
