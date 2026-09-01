@@ -12,7 +12,6 @@ const config: Config = {
         paper: "#FFFFFF",
         line: "#D9D9D6",
         muted: "#5C5C58",
-        alert: "#B3261E",
       },
       fontFamily: {
         serif: ["var(--font-newsreader)", "Georgia", "serif"],

@@ -155,7 +155,7 @@ export default function ReportForm() {
       </div>
 
       {status === "error" && message ? (
-        <p role="alert" className="border-l-2 border-alert pl-4 font-sans text-sm text-alert">
+        <p role="alert" className="border-l-2 border-ink bg-ink/[0.03] py-2 pl-4 font-sans text-sm font-medium text-ink">
           {message}
         </p>
       ) : null}

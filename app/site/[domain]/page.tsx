@@ -67,7 +67,9 @@ export default async function SiteDetailPage({ params }: Props) {
       <div className="mt-6 border-b border-line pb-8">
         <span
           className={`inline-block border px-3 py-1 font-sans text-xs uppercase tracking-wide ${
-            isConfirmed ? "border-alert text-alert" : "border-line text-muted"
+            isConfirmed
+              ? "border-ink bg-ink text-paper"
+              : "border-ink text-ink"
           }`}
         >
           {isConfirmed ? "Confirmé comme arnaque" : "Sous surveillance"}

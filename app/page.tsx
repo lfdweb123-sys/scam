@@ -7,19 +7,33 @@ export const dynamic = "force-dynamic";
 
 function SiteRow({ site, rank }: { site: SiteDoc; rank: number }) {
   return (
-    <li className="flex items-baseline justify-between gap-4 border-b border-line py-4">
-      <div className="flex items-baseline gap-4">
-        <span className="w-6 shrink-0 font-sans text-sm text-muted">
-          {String(rank).padStart(2, "0")}
+    <li className="border-b border-line">
+      <Link
+        href={`/site/${encodeURIComponent(site.domain)}`}
+        className="group flex items-center justify-between gap-4 py-4 transition-colors hover:bg-ink/[0.03] focus-visible:bg-ink/[0.03] px-2 -mx-2"
+      >
+        <div className="flex min-w-0 items-baseline gap-4">
+          <span className="w-6 shrink-0 font-sans text-sm text-muted">
+            {String(rank).padStart(2, "0")}
+          </span>
+          <span className="truncate font-serif text-lg text-ink group-hover:underline">
+            {site.domain}
+          </span>
+        </div>
+        <span className="shrink-0 whitespace-nowrap font-sans text-sm text-muted">
+          {site.reportCount} signalement{site.reportCount > 1 ? "s" : ""}
         </span>
-        <Link href={`/site/${encodeURIComponent(site.domain)}`} className="font-serif text-lg text-ink hover:underline">
-          {site.domain}
-        </Link>
-      </div>
-      <span className="shrink-0 font-sans text-sm text-muted">
-        {site.reportCount} signalement{site.reportCount > 1 ? "s" : ""}
-      </span>
+      </Link>
     </li>
+  );
+}
+
+function StatBox({ label, value }: { label: string; value: number }) {
+  return (
+    <div className="border border-line px-5 py-4">
+      <dt className="font-sans text-xs uppercase tracking-wide text-muted">{label}</dt>
+      <dd className="mt-1 font-serif text-3xl text-ink">{value}</dd>
+    </div>
   );
 }
 
@@ -41,42 +55,39 @@ export default async function HomePage() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-12 sm:py-16">
-      <section className="max-w-prose border-b border-line pb-12">
-        <h1 className="font-serif text-4xl leading-tight text-ink sm:text-5xl">
+    <div className="mx-auto max-w-5xl px-6 py-14 sm:py-20">
+      <section className="border-b border-ink pb-14">
+        <p className="font-sans text-xs uppercase tracking-[0.15em] text-muted">
+          Registre public · mis à jour en continu
+        </p>
+        <h1 className="mt-4 max-w-prose font-serif text-4xl leading-[1.15] text-ink sm:text-5xl">
           Vérifiez un site avant d&apos;y faire confiance.
         </h1>
-        <p className="mt-5 font-sans text-base leading-relaxed text-muted sm:text-lg">
+        <p className="mt-5 max-w-prose font-sans text-base leading-relaxed text-muted sm:text-lg">
           ScamWatch rassemble les signalements d&apos;internautes sur des sites
           suspectés de fraude : faux e-commerce, phishing, faux investissements.
           Chaque signalement est vérifié automatiquement avant publication.
           Un site atteignant {SEUIL_CONFIRMATION} signalements approuvés est
           classé comme confirmé.
         </p>
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
           <Link
             href="/signaler"
-            className="inline-block border border-ink px-5 py-2.5 font-sans text-sm text-ink hover:bg-ink hover:text-paper"
+            className="inline-block border border-ink bg-ink px-6 py-3 font-sans text-sm text-paper transition-colors hover:bg-paper hover:text-ink"
           >
             Signaler un site
           </Link>
           <Link
             href="/comment-ca-marche"
-            className="inline-block px-5 py-2.5 font-sans text-sm text-muted hover:text-ink hover:underline"
+            className="inline-block font-sans text-sm text-ink underline decoration-line underline-offset-4 hover:decoration-ink"
           >
             Comment fonctionne le registre
           </Link>
         </div>
 
-        <dl className="mt-10 grid max-w-sm grid-cols-2 gap-6 font-sans">
-          <div>
-            <dt className="text-xs uppercase tracking-wide text-muted">Sites confirmés</dt>
-            <dd className="mt-1 font-serif text-3xl text-ink">{counts.confirmed}</dd>
-          </div>
-          <div>
-            <dt className="text-xs uppercase tracking-wide text-muted">Sites suivis</dt>
-            <dd className="mt-1 font-serif text-3xl text-ink">{counts.total}</dd>
-          </div>
+        <dl className="mt-12 grid max-w-md grid-cols-2 gap-4">
+          <StatBox label="Sites confirmés" value={counts.confirmed} />
+          <StatBox label="Sites suivis" value={counts.total} />
         </dl>
       </section>
 
@@ -85,18 +96,20 @@ export default async function HomePage() {
           Le registre est momentanément indisponible. Réessayez dans quelques instants.
         </p>
       ) : (
-        <div className="mt-12 grid gap-16 lg:grid-cols-2">
+        <div className="mt-14 grid gap-16 lg:grid-cols-2 lg:gap-12">
           <section>
-            <h2 className="font-serif text-2xl text-ink">Sites confirmés</h2>
-            <p className="mt-1 font-sans text-sm text-muted">
-              {SEUIL_CONFIRMATION} signalements approuvés ou plus.
-            </p>
+            <div className="flex items-baseline justify-between border-b border-ink pb-3">
+              <h2 className="font-serif text-2xl text-ink">Sites confirmés</h2>
+              <span className="font-sans text-xs text-muted">
+                {SEUIL_CONFIRMATION}+ signalements
+              </span>
+            </div>
             {confirmed.length === 0 ? (
               <p className="mt-6 font-sans text-sm text-muted">
                 Aucun site n&apos;a encore atteint le seuil de confirmation.
               </p>
             ) : (
-              <ul className="mt-4">
+              <ul className="mt-2">
                 {confirmed.map((site, i) => (
                   <SiteRow key={site.domain} site={site} rank={i + 1} />
                 ))}
@@ -105,16 +118,16 @@ export default async function HomePage() {
           </section>
 
           <section>
-            <h2 className="font-serif text-2xl text-ink">Sous surveillance</h2>
-            <p className="mt-1 font-sans text-sm text-muted">
-              Signalements en cours, seuil de confirmation non atteint.
-            </p>
+            <div className="flex items-baseline justify-between border-b border-ink pb-3">
+              <h2 className="font-serif text-2xl text-ink">Sous surveillance</h2>
+              <span className="font-sans text-xs text-muted">en cours</span>
+            </div>
             {watched.length === 0 ? (
               <p className="mt-6 font-sans text-sm text-muted">
                 Aucun site sous surveillance pour le moment.
               </p>
             ) : (
-              <ul className="mt-4">
+              <ul className="mt-2">
                 {watched.map((site, i) => (
                   <SiteRow key={site.domain} site={site} rank={i + 1} />
                 ))}
